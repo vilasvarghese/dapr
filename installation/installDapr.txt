@@ -1,0 +1,13 @@
+		
+		
+		install dapr
+		--------------------
+		install docker
+		https://docs.dapr.io/getting-started/install-dapr-cli/
+		sudo ln -s /usr/local/bin/dapr /usr/bin/dapr
+		
+		
+		setup dapr
+		--------------------
+		dapr init
+		export PATH=$PATH:/root/.dapr/bin

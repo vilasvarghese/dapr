@@ -1,0 +1,2676 @@
+https://www.techtarget.com/searchitoperations/tutorial/Use-Dapr-on-Kubernetes-to-build-microservices-in-production
+
+https://github.com/dapr/dapr
+https://github.com/dapr/docs
+https://github.com/dapr/quickstarts
+https://docs.dapr.io/concepts/overview/
+https://docs.dapr.io/getting-started/tutorials/
+https://www.techtarget.com/searchitoperations/tutorial/Use-Dapr-on-Kubernetes-to-build-microservices-in-production
+https://www.cncf.io/blog/2021/11/03/dapr-distributed-application-runtime-joins-cncf-incubator/
+
+java examples
+	https://github.com/dapr/java-sdk
+	https://medium.com/codex/event-driven-programming-with-dapr-db96ac855a2d
+	https://www.baeldung.com/dapr-spring-cloud-gateway
+	https://docs.dapr.io/developing-applications/sdks/java/
+
+.net
+	https://github.com/dapr/dotnet-sdk
+	https://github.com/dotnet-architecture/eShopOnDapr
+	practical example in .net
+		https://github.com/thangchung/practical-dapr
+go	
+	https://github.com/dapr/go-sdk
+dapr cli
+	https://github.com/dapr/cli
+python
+	https://github.com/dapr/python-sdk
+
+samples
+	https://github.com/dapr/samples
+	
+	
+	
+---------------------------
+pre-req.
+	Docker 
+	Kubernetes
+	Docker compose?
+	Kubenetes RBAC
+	
+---------------------------	
+
+
+
+	
+Dapr
+	Distributed Application Runtime
+	Open source project 
+		of Microsoft Azure’s internal innovation incubation team. 
+	Donated to CNCF
+		incubation project of CNCF since 2021.
+	Designed to solve common problems 
+		in microservice application. 
+	Portable, event-driven runtime 
+		makes it easier for enterprise developers to use various languages…
+
+
+Features
+	Event-driven Pub-Sub system with 
+		pluggable providers and 
+		at-least-once semantics
+	Input and output bindings with pluggable providers
+	State management with pluggable data stores
+	Consistent service-to-service discovery and invocation
+	Opt-in stateful models: 
+		Strong/Eventual consistency, 
+		First-write/Last-write wins
+	Cross platform virtual actors
+	Secrets management to retrieve secrets from secure key vaults
+	Rate limiting
+	Built-in Observability support
+	Runs natively on Kubernetes using a dedicated Operator and CRDs
+	Supports all programming languages via HTTP and gRPC
+	Multi-Cloud, open components (bindings, pub-sub, state) from Azure, AWS, GCP
+	Runs anywhere, as a process or containerized
+	Lightweight (58MB binary, 4MB physical memory)
+	Runs as a sidecar - removes the need for special SDKs or libraries
+	Dedicated CLI - developer friendly experience with easy debugging
+	Clients for Java, .NET Core, Go, Javascript, Python, Rust and C++
+	
+	
+	
+	
+
+
+
+
+
+
+Microservices with Spring Cloud
+
+
+
+
+
+
+
+
+
+Prerequisites: 
+Participants should be comfortable with the below technologies 
+1. Java 8 
+2. Eclipse IDE
+Day 1 (Day wise break up is indicative – exact breakup will be known after finalizing the content, including which stack to use for logging and monitoring).
+
+-----------------------------------------------------------------------------------------
+•	Microservices Introduction 
+-----------------------------------------------------------------------------------------
+	o	Why and when to use 
+	--------------------------------------------------------------------------------------
+	o	Monolithic vs Microservice Architecture 
+		---------------------------------------------------------------------------------
+	o	Difference between message and events.
+	---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------	
+•	Docker
+---------------------------------------------------------------------------------
+o	What are Docker images
+	---------------------------------------------------------------------------------
+		How are images stored internally
+	---------------------------------------------------------------------------------
+		How to create our own images
+	---------------------------------------------------------------------------------
+•	FROM, RUN, CMD, ENTRYPOINT, ADD, COPY, ENTRYPOINT etc.
+---------------------------------------------------------------------------------
+	o	What are Docker containers
+	---------------------------------------------------------------------------------
+	o	What is Docker volume
+	---------------------------------------------------------------------------------
+	o	What is Docker networking
+	---------------------------------------------------------------------------------
+
+Day2
+•	Kubernetes
+---------------------------------------------------------------------------------
+	o	Difference between containerization and orchestration
+	---------------------------------------------------------------------------------
+	o	What is a Pod
+	---------------------------------------------------------------------------------
+	o	Kubernetes architecture
+	---------------------------------------------------------------------------------
+	o	How is a Pod created?
+	---------------------------------------------------------------------------------
+	o	Create a Pod
+	---------------------------------------------------------------------------------
+	o	Create replicaset
+	---------------------------------------------------------------------------------
+			Scale out/in pods
+		---------------------------------------------------------------------------------
+			Crash and auto recover containers
+		---------------------------------------------------------------------------------
+	o	Create deployment
+	---------------------------------------------------------------------------------
+			Update and rollback pods.
+		---------------------------------------------------------------------------------
+	o	Kubernetes services
+	---------------------------------------------------------------------------------
+			Clusterip
+		---------------------------------------------------------------------------------
+			NodePort
+		---------------------------------------------------------------------------------
+			Loadbalancer
+		---------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------
+dapr on kubernetes (Indicative)
+-------------------------------
+https://docs.dapr.io/operations/hosting/kubernetes/
+
+
+pre-req.
+	https://azure.github.io/dapr-java-workshop/modules/0-Module/0-2-prerequisites.html
+	
+	git clone https://github.com/Azure/dapr-java-workshop.git
+	dapr init -k
+	
+	https://azure.github.io/dapr-java-workshop/modules/2-Module/
+	dapr run will work on docker desktop.
+	
+	in k8s. we continue to use kubectl apply with proper annotations.
+	cd dapr-java-workshop
+	cd dapr/
+	
+	https://dapr.github.io/java-sdk/
+	
+---------------------------------------------------------------------------------
+
+Day 3
+---------------------------------------------------------------------------------
+•	Microservices with Spring 
+---------------------------------------------------------------------------------
+	o	Spring Cloud & Spring Boot Projects
+	---------------------------------------------------------------------------------
+	o	Spring Boot Actuator
+	---------------------------------------------------------------------------------
+	o	Database per service pattern
+	---------------------------------------------------------------------------------
+	o	Design and build two springboot microservices end to end
+	-------------------------------------------------------------------------
+			Create the docker images 
+		---------------------------------------------------------------------------------
+			Deploying it into Kubernetes orchestrated clusters
+		---------------------------------------------------------------------------------
+
+Day 4
+-----------------------------------------------------------------------------
+	o	Testing microservices with local components 
+	-------------------------------------------------------------------------
+	o	Microservice one picks data from MongDB
+	-------------------------------------------------------------------------
+	o	Microservice two picks data from neo4j
+	-------------------------------------------------------------------------
+	https://github.com/verdverm/neo4j-tutorials
+	
+-----------------------------------------------------------------------------
+•	Connecting Microservices
+----------------------------------------------------------------------------
+	o	Azure CLI installation
+	-------------------------------------------------------------------------
+	o	Azure Kubernetes service provisioning
+	------------------------------------------------------------------------
+	o	DAPR setup on Azure Kubernetes service
+	-------------------------------------------------------------------------
+	challenges of microservice
+		limited tools and runtimes to 
+			build distributed applications
+		runtimes have limited language support
+			tightly controlled feature sets
+		Runtimes only target specific infrastructure platform with 
+			limited portability
+			
+	Expectation
+		service discovery
+		key/value store - state store
+		sdk + api's integration
+		switch technology
+	Distributed application runtime
+		Portable, event-driven, runtime for 
+			building distributed application 
+				across cloud and edge
+	Open source
+		extensible
+		building blocks
+			image in below shows each of them
+	https://docs.dapr.io/concepts/overview/ 
+			https://docs.dapr.io/developing-applications/building-blocks/
+		
+		
+		
+		install dapr
+		--------------------
+		install docker
+		https://docs.dapr.io/getting-started/install-dapr-cli/
+		sudo ln -s /usr/local/bin/dapr /usr/bin/dapr
+		
+		
+		setup dapr
+		--------------------
+		dapr init
+		export PATH=$PATH:/root/.dapr/bin
+		
+	General syntax
+		dapr run --app-id --app-port --dapr-http-port 
+		
+		
+	
+
+	On dapr init
+		creates a default components folder 
+		contains YAML files 
+			definitions for a state store, 
+			Pub/sub, and 
+			Zipkin. 
+		The Dapr sidecar 
+			will read these components and use:
+
+	The Redis container for state management and messaging.
+	The Zipkin container for collecting traces.
+	Verify by opening your components directory:
+		On Windows, under %UserProfile%\.dapr
+		On Linux/MacOS, under ~/.dapr
+		
+	ls $HOME/.dapr
+	
+	
+Hello World
+-----------
+https://docs.dapr.io/getting-started/get-started-api/
+	
+	Do this in dapr with docker in kubernetes components are managed with in kubernetes itself.
+	dapr run --app-id myapp --dapr-http-port 3500
+		#doesn't launch a container 
+
+	Post request
+		curl -X POST -H "Content-Type: application/json" -d '[{ "key": "name", "value": "Bruce Wayne"}]' http://localhost:3500/v1.0/state/statestore
+
+	get 
+		curl http://localhost:3500/v1.0/state/statestore/name 
+
+	How state is stored in redis?
+	docker exec -it dapr_redis redis-cli
+		keys *
+		hgetall "myapp||name"
+		exit
+	
+	delete
+		curl -v -X DELETE -H "Content-Type: application/json" http://localhost:3500/v1.0/state/statestore/name
+
+
+
+How it works
+------------
+Dapr injects a side-car 
+	(container or process) 
+		to each compute unit. 
+	Side-car interacts with event triggers 
+	Communicates with the compute unit 
+		via standard 
+			HTTP 
+		or 
+			gRPC protocols. 
+	Enables Dapr to support 
+		all existing 
+	and 
+		future programming languages 
+		no need to import frameworks or libraries.
+
+Dapr offers 
+	built-in 
+		state management, 
+		reliable messaging 
+			(at least once delivery), 
+		triggers and bindings 
+			through standard 
+				HTTP verbs or gRPC interfaces. 
+			Allows you to write stateless, stateful and actor-like services 
+				same programming paradigm. 
+			We can choose 
+				consistency model, 
+				threading model and 
+				message delivery patterns.
+
+Dapr runs 
+	natively on Kubernetes
+	as a self hosted binary 
+		on your 
+			machine
+		or
+			IoT device
+		or	
+			as a container 
+		can be injected into any system in the 
+			cloud or 
+			on-premises.
+
+	Dapr uses 
+		pluggable component state stores 
+	and 
+		message buses 
+			such as Redis 
+	as well as 
+		gRPC 
+			to offer a wide range of communication methods
+			including 
+				direct dapr-to-dapr using gRPC and 
+				async Pub-Sub with guaranteed delivery and at-least-once semantics.
+
+--------------------------------------------------
+
+
+https://www.techtarget.com/searchitoperations/tutorial/Use-Dapr-on-Kubernetes-to-build-microservices-in-production
+
+Make microservices agnostic
+---------------------------
+Distributed Application Runtime[Dapr]
+	Microsoft in 2019 
+	Added to CNCF as an incubating project in 2021. 
+	https://www.cncf.io/blog/2021/11/03/dapr-distributed-application-runtime-joins-cncf-incubator/
+	aim: 
+		deliver foundational framework 
+			for microservices development 
+			Manage MS corss cutting capabilities like 
+				e.g. 
+					service discovery and 
+					state management (session management)
+					publish/subscribe messaging
+		developers focus on business logic 
+				.
+
+Diagram of the Dapr API building block vs. the application
+Figure 1. in
+https://www.techtarget.com/searchitoperations/tutorial/Use-Dapr-on-Kubernetes-to-build-microservices-in-production
+
+	For e.g., 
+		use Dapr to store state for microservices
+		use an HTTP POST call to the endpoint http://localhost:<DAPR_HTTP_PORT>/v1.0/statestore with the payload.
+
+Reference to image
+	Building blocks 
+		blueprints, or interfaces, for the API. 
+	The actual implementations 
+		called components. 
+			like code 
+			implements the standard API 
+				for a building block with infrastructure components
+				such as Redis for state management.
+
+Sidecar pattern
+	What is sidecar?
+	crosscutting concerns 
+		of building a microservice
+		e.g. 
+			logging and 
+			monitoring
+			
+In K8s			
+	A pod contains the container running the microservices' core logic
+	a sidecar 
+		runs a separate service 
+		provide the main application's extra features. 
+		The sidecar shares the same lifecycle as the parent container.
+
+	Dapr uses this pattern to deploy applications on Kubernetes; 
+		it deploys a sidecar
+		provides the basic APIs -- building blocks -- the application needs. 
+	The infrastructure 
+		no code changes 
+	Underlying infrastructure implementations 
+		can swap in and out
+		
+		
+		
+
+
+
+Trying java hello world instead of below
+https://azure.github.io/dapr-java-workshop/modules/5-Module/dapr-sidecar-in-k8s.html
+
+https://azure.github.io/dapr-java-workshop/modules/5-Module/assignment-5-instructions.html
+
+https://azure.github.io/dapr-java-workshop/
+
+	install azure cli
+		https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+	dapr cli
+		https://docs.dapr.io/getting-started/install-dapr-cli/
+	remote kubernetes	
+		https://learn.microsoft.com/en-us/azure/aks/learn/quick-kubernetes-deploy-cli
+	
+	
+------------------
+dapr in kubernetes
+https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/	
+	az login
+	dapr init -k
+	dapr init -k --enable-ha=true
+	kubectl get ns
+	kubectl get pod -n dapr-system
+	
+https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes
+
+
+install helm
+	https://helm.sh/
+	
+	
+	https://docs.dapr.io/getting-started/tutorials/configure-state-pubsub/#step-1-create-a-redis-store
+	
+	
+
+Connecting to a node on aks cluster
+-----------------------------------
+https://learn.microsoft.com/en-us/azure/aks/node-access
+
+
+	dapr run --app-id myapp --app-port 8080 --dapr-http-port 3500
+
+	
+State management	https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/	
+
+
+Use Dapr’s state management API to 
+	save, 
+	read
+	query 
+		key/value pairs 
+
+		Use for application state saving.
+
+Use HTTP POST to save or query key/value pairs.
+Use HTTP GET to read a specific key and have its value returned.
+
+
+
+Performing bulk 
+	CRUD 
+		including multiple transactional operations.
+Querying and filtering 
+	key/value data.
+
+Features available in state management API:
+
+	Pluggable state stores
+	----------------------
+	Dapr data stores 
+		default: Redis
+		modeled as components
+			swapped out 
+				no changes to your service code. 
+				Supported state store list	https://docs.dapr.io/reference/components-reference/supported-state-stores/
+
+	Configurable state store behaviors
+	----------------------------------
+	Include additional metadata 
+		in state operation request 
+			how request should be handled. 
+			Can attach:
+				- Concurrency requirements
+				- Consistency requirements
+				
+				Application should assume
+					data store is eventually consistent 
+					last-write-wins concurrency pattern.
+
+				Not all stores are created equal. 
+				For application’s portability
+					query the metadata capabilities of the store 
+					make your code adaptive to different store capabilities.
+
+	Concurrency
+	-----------
+	Dapr supports 
+		Optimistic Concurrency Control (OCC) 
+			using ETags. 
+	When a state value is requested
+		Dapr attaches an ETag property 
+			to the returned state. 
+		When the user code:
+
+	Updates a state, 
+		it’s expected to attach the ETag 
+			through the request body.
+	Deletes a state
+		it’s expected to attach the ETag 
+			through the If-Match header.
+	The write operation 
+		succeeds when the provided ETag 
+			matches the ETag in the state store.
+
+	Why Dapr chooses optimistic concurrency control (OCC)
+	Data update conflicts are rare in many applications, since clients are naturally partitioned by business contexts to operate on different data. However, if your application chooses to use ETags, mismatched ETags may cause a request rejection. It’s recommended you use a retry policy in your code to compensate for conflicts when using ETags.
+
+	If your application omits ETags in writing requests, Dapr skips ETag checks while handling the requests. This enables the last-write-wins pattern, compared to the first-write-wins pattern with ETags.
+
+Note on ETags
+For stores that don’t natively support ETags, the corresponding Dapr state store implementation is expected to simulate ETags and follow the Dapr state management API specification when handling states. Since Dapr state store implementations are technically clients to the underlying data store, simulation should be straightforward, using the concurrency control mechanisms provided by the store.
+Read the API reference to learn how to set concurrency options.
+
+Consistency
+Dapr supports both strong consistency and eventual consistency, with eventual consistency as the default behavior.
+
+Strong consistency: Dapr waits for all replicas (or designated quorums) to acknowledge before it acknowledges a write request.
+Eventual consistency: Dapr returns as soon as the write request is accepted by the underlying data store, even if this is a single replica.
+Read the API reference to learn how to set consistency options.
+
+Setting content type
+State store components may maintain and manipulate data differently, depending on the content type. Dapr supports passing content type in state management API as part of request metadata.
+
+Setting the content type is optional, and the component decides whether to make use of it. Dapr only provides the means of passing this information to the component.
+
+With the HTTP API: Set content type via URL query parameter metadata.contentType. For example, http://localhost:3500/v1.0/state/store?metadata.contentType=application/json.
+With the gRPC API: Set content type by adding key/value pair "contentType" : <content type> to the request metadata.
+Multiple operations
+Dapr supports two types of multi-read or multi-write operations: bulk or transactional. Read the API reference to learn how use bulk and multi options.
+
+Bulk read operations
+You can group multiple read requests into a bulk (or batch) operation. In the bulk operation, Dapr submits the read requests as individual requests to the underlying data store, and returns them as a single result.
+
+Transactional operations
+You can group write, update, and delete operations into a request, which are then handled as an atomic transaction. The request will succeed or fail as a transactional set of operations.
+
+Actor state
+Transactional state stores can be used to store actor state. To specify which state store to use for actors, specify value of property actorStateStore as true in the state store component’s metadata section. Actors state is stored with a specific scheme in transactional state stores, allowing for consistent querying. Only a single state store component can be used as the state store for all actors. Read the state API reference and the actors API reference to learn more about state stores for actors.
+
+State encryption
+Dapr supports automatic client encryption of application state with support for key rotations. This is supported on all Dapr state stores. For more info, read the How-To: Encrypt application state topic.
+
+Shared state between applications
+Different applications’ needs vary when it comes to sharing state. In one scenario, you may want to encapsulate all state within a given application and have Dapr manage the access for you. In another scenario, you may want two applications working on the same state to get and save the same keys.
+
+Dapr enables states to be:
+
+Isolated to an application.
+Shared in a state store between applications.
+Shared between multiple applications across different state stores.
+For more details read How-To: Share state between applications,
+
+Querying state
+There are two ways to query the state:
+
+Using the state management query API provided in Dapr runtime.
+Querying state store directly with the store’s native SDK.
+Query API
+Using the optional state management query API, you can query the key/value data saved in state stores, regardless of underlying database or storage technology. With the state management query API, you can filter, sort, and paginate the key/value data. For more details read How-To: Query state.
+
+Querying state store directly
+Dapr saves and retrieves state values without any transformation. You can query and aggregate state directly from the underlying state store. For example, to get all state keys associated with an application ID “myApp” in Redis, use:
+
+Copy
+KEYS "myApp*"
+Note on direct queries
+Since you aren’t calling through the Dapr runtime, direct queries of the state store are not governed by Dapr concurrency control. What you see are snapshots of committed data acceptable for read-only queries across multiple actors. Writes should be done via the Dapr state management or actors APIs.
+Querying actor state
+If the data store supports SQL queries, you can query an actor’s state using SQL queries. For example:
+
+Copy
+SELECT * FROM StateTable WHERE Id='<app-id>||<actor-type>||<actor-id>||<key>'
+You can also avoid the common turn-based concurrency limitations of actor frameworks by performing aggregate queries across actor instances. For example, to calculate the average temperature of all thermometer actors, use:
+
+Copy
+SELECT AVG(value) FROM StateTable WHERE Id LIKE '<app-id>||<thermometer>||*||temperature'
+State Time-to-Live (TTL)
+Dapr enables per state set request time-to-live (TTL). This means that applications can set time-to-live per state stored, and these states cannot be retrieved after expiration.
+
+State management API
+The state management API can be found in the state management API reference, which describes how to retrieve, save, delete, and query state values by providing keys.
+
+
+
+
+
+How-To: Save and get state
+https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-get-save-state/
+
+	quickstarts/state_management/java/http/order-processor
+
+How-To: Query state
+https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-state-query-api/
+
+
+
+How-To: Build a stateful service
+https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-stateful-service/
+
+How-To: Share state between applications
+https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-share-state/
+
+How-To: Encrypt application state
+https://docs.dapr.io/developing-applications/building-blocks/state-management/howto-encrypt-state/
+
+
+Backend stores
+https://docs.dapr.io/developing-applications/building-blocks/state-management/query-state-store/
+		
+		
+		
+
+	Sidecar model
+	--------------
+	dapr works using side car model
+https://www.cncf.io/blog/2021/11/03/dapr-distributed-application-runtime-joins-cncf-incubator/
+
+
+
+
+
+-------------------------
+
+
+
+
+Day 5
+-----------------------------------------------------------------------------
+		o	Introduction to Saga in Microservices
+	---------------------------------------------------------------------------------
+	https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+	
+	https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview/
+	https://docs.dapr.io/developing-applications/building-blocks/
+	
+			Saga orchestrator
+	
+https://www.mongodb.com/compatibility/spring-boot
+http://www.littlebigextra.com/how-to-connect-to-spring-boot-rest-service-to-mongo-db-in-docker/
+docker run --name mongodb -d -e MONGO_INITDB_ROOT_USERNAME=vilas -e MONGO_INITDB_ROOT_PASSWORD=vilas mongo
+	docker exec -it <CONTAINER_NAME> bash
+	mongo
+	show dbs
+	
+-------------------
+	
+Mongodb working example
+
+	docker statement below for mongodb worked. but app is not compiling	http://www.littlebigextra.com/how-to-connect-to-spring-boot-rest-service-to-mongo-db-in-docker/
+	docker run -d -p 27017:27017 --name mongo mongo	
+	
+	https://github.com/mongodb-developer/mongodb-springboot
+	https://www.mongodb.com/compatibility/spring-boot
+	
+	
+application.properties entry 
+
+#spring.data.mongodb.uri=mongodb+srv://<username>:<pwd>@<cluster>.mongodb.net/mygrocerylist
+#spring.data.mongodb.database=mygrocerylist
+#spring.data.mongodb.uri=mongodb+srv://vilas:vilas@localhost/test
+#spring.data.mongodb.database=test
+spring.data.mongodb.host=localhost
+spring.data.mongodb.port=27017
+
+open the port in azure port if required.
+
+mvn package
+java -jar target/mdb-spring-boot-0.0.1-SNAPSHOT.jar
+
+N.B: /home/azureuser/mongodb-springboot/mdb-spring-boot/src/main/java/com/example/mdbspringboot/repository
+below ?
+/d/PraiseTheLord/HSBGInfotech/Others/vinsguru-blog-code-samples/architectural-pattern/saga-choreography
+-------------------
+neo4j
+-----
+https://spring.io/guides/gs/accessing-data-neo4j/
+https://neo4j.com/developer/spring-data-neo4j/
+	https://github.com/spring-projects/spring-data-neo4j
+	
+
+docker run \
+    --name neo4j \
+    -p7474:7474 -p7687:7687 \
+    -d \
+    -v $HOME/neo4j/data:/data \
+    -v $HOME/neo4j/logs:/logs \
+    -v $HOME/neo4j/import:/var/lib/neo4j/import \
+    -v $HOME/neo4j/plugins:/plugins \
+    --env NEO4J_AUTH=neo4j/test \
+    neo4j:latest
+or	
+	docker run --publish=7474:7474 --publish=7687:7687 neo4j:4.3.6
+
+follow the below tutorial
+https://spring.io/guides/gs/accessing-data-neo4j/
+/home/azureuser/neo4j
+
+spring.neo4j.uri=bolt://localhost:7687
+spring.data.neo4j.username=neo4j
+spring.data.neo4j.password=test
+
+Reference: https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+cd /home/azureuser/neo4j/
+cd d:/code1/neo4j
+dapr run --app-port 8080 --app-id person-processor --components-path ./components -- java -jar target/neo4j-0.0.1-SNAPSHOT.jar
+
+
+with mongo and pub/sub
+----------------------
+directly made changes in quickstarts. 
+hence commands can come from https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+
+
+dapr run --app-id checkout --components-path ../../../components -- java -jar target/CheckoutService-0.0.1-SNAPSHOT.jar
+
+
+	---------------------------------------------------------------------------------
+			Saga choreographer
+		
+		
+		---------------------------------------------------------------------------------
+			Implementation of Saga pattern
+		--------------------------------------------------------------------------------
+			https://github.com/berndruecker/trip-booking-saga-java
+			https://www.baeldung.com/cs/saga-pattern-microservices
+			https://www.nexsoftsys.com/articles/java-microservice-architecture-using-saga-pattern.html
+			https://www.vinsguru.com/choreography-saga-pattern-with-spring-boot/
+			http://www.vinsguru.com/architectural-pattern-orchestration-saga-pattern-implementation-using-kafka/
+
+		bring up kafka
+		---------------
+		install docker-compose from my instructions
+		https://github.com/conduktor/kafka-stack-docker-compose
+
+
+		cd /kafka-stack-docker-compose
+		 docker-compose -f zk-single-kafka-single.yml up
+		 
+		 bring up saga
+		---------------
+		https://www.vinsguru.com/choreography-saga-pattern-with-spring-boot/
+		add in build section 
+		
+		                <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-resources-plugin</artifactId>
+                                <version>3.1.0</version>
+                        </plugin>
+			
+			and lombok version 
+                <version>1.18.22</version>
+		
+		
+		
+	•	NoSQL
+	---------------------------------------------------------------------------------
+		o	Introduction to NoSQL
+		---------------------------------------------------------------------------------
+NoSQL 
+	originally 
+		non SQL 
+	or 
+		non relational 
+	sometimes called 
+		Not only SQL
+			may support SQL-like query languages
+			
+	database 
+		mechanism to 
+			storage and 
+			retrieval data. 
+	data modeled not in tabular relations 
+		used in relational databases. 
+	
+	NoSQL databases 
+		used in 
+			real-time web applications and 
+			big data and 
+			
+	simplicity of design
+	horizontal scaling 
+	better availability. 
+	data structures 
+		different 
+			some operations faster in NoSQL. 
+		suitability 
+			depends on the problem 
+		Data structures 
+			sometimes 
+				flexible 
+		Many NoSQL 
+			compromise consistency 
+		in favor 
+			availability, 
+			speed and 
+			partition tolerance. 
+	Disadv.	
+		use of low-level query languages
+		lack of standardized interfaces
+		huge previous investments in existing relational databases. 
+	
+	Most NoSQL stores 
+		lack true ACID(Atomicity, Consistency, Isolation, Durability) transactions 
+	Few databases
+		e.g. 
+			MarkLogic, 
+			Aerospike, 
+			FairCom c-treeACE, 
+			Google Spanner (though technically a NewSQL database), 
+			Symas LMDB, and 
+			OrientDB 
+	
+	Most NoSQL databases 
+		eventual consistency 
+			database changes are propagated 
+				to all nodes 
+	queries may 
+		return MAY NOT return updated data. 
+		may exhibit data loss. 
+	For distributed transaction processing 
+		across multiple databases
+			data consistency is an even bigger challenge. 
+	Difficult for both 
+		NoSQL and 
+		relational databases. 
+	referential integrity constraints across databases are not supported well. 
+		Saga solves this.
+	
+	
+Advantages of NoSQL: 
+	main advantages 
+		high scalability and 
+		high availability.
+
+
+	High scalability – 
+		sharding: 
+			horizontal scaling. 
+			Partitioning of data 
+				placing it on multiple machines 
+				where order of the data is preserved. 
+		Vertical scaling 
+	
+		horizontal scaling 
+			easy to implement. 
+			Examples of horizontal scaling databases 
+				MongoDB, 
+				Cassandra, etc
+			NoSQL 
+				handle a huge amount of data 
+					because of scalability, 
+				as the data grows 
+					NoSQL scale itself 
+	High availability – 
+		Auto replication 
+			highly available 
+				in case of any failure 
+				data replicates itself 
+					to the previous consistent state.
+
+Disadvantages of NoSQL:
+---------------------------------------------------------------
+	Narrow focus – 
+		designed for storage 
+		Relational databases are a better 
+			for Transaction Management than NoSQL.
+	Open-source – 
+		no reliable standard for NoSQL yet. 
+		two database are unequal.
+	Management challenge – 
+		The purpose of big data tools 
+			make large amount of data management simple 
+				not so easy. 
+			Data management in NoSQL 
+				much more complex 
+					than in relational database. 
+			challenging to install 
+			hectic to manage on a daily basis.
+	GUI is not available – 
+		Matured GUI generally not available.
+	Backup – 
+		Backup 
+			weak point for some NoSQL databases like 
+				MongoDB. 
+			MongoDB 
+				no matured approach for consistent backup.
+	Large document size – 
+		Some database systems like MongoDB and CouchDB 
+			store data in JSON format. 
+		documents are quite large 
+			BigData, 
+			network bandwidth, 
+			speed
+		descriptive key names 
+			hurts.
+
+		
+		
+		
+		o	Types of NoSQL
+		---------------------------------------------------------------------------------
+	Types of NoSQL database: 
+	-----------------------
+		Graph Databases: 
+			Amazon Neptune, 
+			Neo4j
+		Key value store: 
+			Memcached, 
+			Redis, 
+			Coherence
+		Tabular: 
+			Hbase, 
+			Big Table, 
+			Accumulo
+		Document-based: 
+			MongoDB, 
+			CouchDB, 
+			Cloudant
+
+
+	When should NoSQL be used:
+	-------------------------
+	huge amount of data.
+		scale horizontal
+	data is growing continuously 
+		scale database regularly.
+	relationship between data 
+		not important
+	The data changes over time 
+		not structured.
+	Constraints and Joins not required 
+	
+
+
+		o	Quick hands on with MongoDB
+		---------------------------------------------------------------------------------
+		http://krams915.blogspot.com/2012/01/spring-mvc-31-implement-crud-with_4739.html
+		how mongodb stores data
+			https://www.mongodb.com/docs/manual/core/document/#std-label-bson-document-format
+			
+			sudo docker run -v mongodata:/data/db -p 27017:27017 --name mongodb -d mongo
+			sudo docker logs mongodb
+				waiting for connections
+			sudo docker exec -it mongodb bash
+			mongosh
+				connected to test database
+			Ref: https://www.mongodb.com/compatibility/docker	
+				installation reference
+			
+-----------------------------
+Ref: https://www.mongodb.com/docs/manual/reference/sql-comparison/
+table/collection implicitly created.
+db.people.insertOne( {
+    user_id: "abc123",
+    age: 55,
+    status: "A"
+ } )
+ 
+ More examples from https://www.mongodb.com/docs/manual/reference/sql-comparison/
+ 
+ 
+-----------------------------	
+http://krams915.blogspot.com/2012/01/spring-mvc-31-implement-crud-with_4739.html
+
+	
+		o	Quick hands with neo4j
+		---------------------------------------------------------------------------------
+
+Neo4j 
+	NoSQL database. 
+	Highly scalable 
+	Schema-free. 
+	graph database management system. 
+	developed by Neo technology 
+	ACID-compliant transactional database 
+	native graph storage and processing.
+
+
+
+
+Neo4j Working
+-------------
+	stores and displays data in the form of graph. 
+	data 
+		represented by nodes 
+		relationships between those nodes.
+	Neo4j databases 
+		(as with any graph database) 
+		different than relational databases 
+			e.g. 
+				Oracle, 
+				SQL Server, 
+				MySQL, etc. 
+		Relational databases 
+			use 
+				tables, 
+				rows, 
+				columns 
+					to store data. 
+			data in a tabular fashion.
+	Neo4j 
+		doesn't use 
+			tables, 
+			rows, 
+			columns 
+				to store or present data.
+		best for storing data 
+			many interconnecting relationships 
+				Neo4j 
+					advantage 
+						better at relational data 
+						
+		doesn't usually require a predefined schema. 
+		don't need to create 
+			database structure 
+				before you load the data 
+		In Neo4j, 
+			the data is the structure. 
+			Neo4j is a "schema-optional" DBMS.
+			no need to set up 
+				primary key/foreign key constraints 
+					predetermine 
+						which fields can have a relationship
+							to which data. 
+			just define 
+				relationships between the nodes 
+				
+
+
+
+https://github.com/krams915/spring-neo4j-tutorial
+https://neo4j.com/developer/docker-run-neo4j/
+
+
+
+docker run \
+    --name testneo4j \
+    -p7474:7474 -p7687:7687 \
+    -d \
+    -v $HOME/neo4j/data:/data \
+    -v $HOME/neo4j/logs:/logs \
+    -v $HOME/neo4j/import:/var/lib/neo4j/import \
+    -v $HOME/neo4j/plugins:/plugins \
+    --env NEO4J_AUTH=neo4j/test \
+    neo4j:latest
+	
+	
+docker exec -it testneo4j bash
+
+
+https://www.javatpoint.com/neo4j-create-nodes
+cypher-shell -u neo4j -p test	
+	CREATE (single);   #a node without label
+	MATCH (n) RETURN n   
+	
+	CREATE (primary_node), ( secondary_node);   
+	MATCH (n) RETURN n;   
+	CREATE (Kalam:scientist);   #node with label
+	MATCH (n) RETURN n;   
+	CREATE (Kalam:person:president:scientist); 	#node with multiple label
+	MATCH (n) RETURN n;   
+	CREATE (Ajeet:Developer{name: "Ajeet Kumar", YOB: 1989, POB: "Mau"});   #node with properties
+	MATCH (n) RETURN n;   
+	CREATE (Vilas:trainer{name: "Vilas Varghese", YOB: 1987, POB: "Faizabad"}) RETURN Vilas; #create and return node
+	
+
+-----------------------------------
+			Redis - talking 
+			install java 
+				install java 17 instead.
+				https://access.redhat.com/documentation/en-us/openjdk/11/html/installing_and_using_openjdk_11_on_rhel/installing-openjdk11-on-rhel8
+			sudo update-alternatives --config 'java'
+			sudo yum install java-11-openjdk
+			java -version
+			
+			https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+			
+			install latest maven 
+			
+			yum update -y
+			yum install maven -y
+			mvn -v 
+			yum install git -y
+			git clone https://github.com/dapr/quickstarts.git
+			cd quickstarts
+			cd pub_sub/java/sdk/order-processor
+			mvn clean install
+			dapr run --app-port 8080 --app-id order-processor --components-path ../../../components -- java -jar target/OrderProcessingService-0.0.1-SNAPSHOT.jar
+
+@Topic(name = "orders", pubsubName = "orderpubsub")
+@PostMapping(path = "/orders", consumes = MediaType.ALL_VALUE)
+public Mono<ResponseEntity> getCheckout(@RequestBody(required = false) CloudEvent<Order> cloudEvent) {
+    return Mono.fromSupplier(() -> {
+        try {
+            logger.info("Subscriber received: " + cloudEvent.getData().getOrderId());
+            return ResponseEntity.ok("SUCCESS");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    });
+}
+
+
+			cd pub_sub/java/sdk/checkout
+			mvn clean install
+			dapr run --app-id checkout --components-path ../../../components -- java -jar target/CheckoutService-0.0.1-SNAPSHOT.jar
+
+DaprClient client = new DaprClientBuilder().build();
+client.publishEvent(
+		PUBSUB_NAME,
+		TOPIC_NAME,
+		order).block();
+logger.info("Published data: " + order.getOrderId());
+
+
+
+
+
+			
+
+
+
+Day 6
+---------------------------------------------------------------------------------
+•	Telemetry and logging
+---------------------------------------------------------------------------------
+	https://docs.dapr.io/concepts/observability-concept/
+	https://docs.dapr.io/developing-applications/building-blocks/observability/
+	https://docs.dapr.io/concepts/
+	
+	
+	
+	Monitor applications through tracing, metrics, logs and health
+	--------------------------------------------------------------
+Observability
+	ability to observe 
+		internal calls of an application
+	gauge its performance 
+	diagnosability
+		identify problems as soon as they occur. 
+	
+	
+	challenging for any system
+	even more for distributed system 
+	
+	Observability 
+		critical in production environments
+		useful during development 
+			understand bottlenecks, 
+			improve performance 
+			perform basic debugging across the span of microservices.
+
+	some data 
+		can be gathered from the underlying infrastructure 
+		(e.g. 
+			memory consumption, 
+			CPU usage
+		)
+	more meaningful information 
+		must be collected from an “application-aware” layer - 
+		how series of calls are executed across microservices?
+		developer must add some code 
+			instrument an application 
+		instrumentation code 
+			simply meant to send collected data 
+				e.g. traces and metrics 
+					to an external monitoring tool or service 
+					help 
+						store, 
+						visualize and 
+						analyze 
+							all this information.
+
+	burden on developer
+		understand 
+			monitoring tools’ APIs
+			additional SDKs etc. 
+		portability challenges of an application
+			may require different instrumentation depending on where the application is deployed. For example, different cloud providers offer different monitoring solutions and an on-prem deployment might require an on-prem solution.
+
+	Observability for your application with Dapr
+	Dapr building 
+		service-to-service calls 
+			pub/sub messaging
+		inter-service communication 
+			through Dapr sidecar
+				application-level instrumentation.
+				injects observability
+
+	Distributed tracing
+		need to configure 
+			emit tracing data
+			using widely adopted protocols 
+				e.g. Zipkin protocol
+		can integrate with multiple monitoring backends.
+	
+	Refer image: https://docs.dapr.io/concepts/observability-concept/
+	
+•	Monitoring applications
+---------------------------------------------------------------------------------
+	o	Implement monitoring using the suggested stack
+	---------------------------------------------------------------------------------
+Dapr default supports zipkin
+	dapr init starts zipkin container by default
+	
+	
+Monitor configuration
+	Dapr's default settings 
+		enable tracing and metrics, 
+	Ideally
+		users should also set up 
+			distributed metrics and tracing 
+			for 
+				Dapr control plane
+			and
+				applications 
+		
+	Dapr defaults 
+		expose a Prometheus endpoint 
+			on port 9090
+		Prometheus can scrape for data.
+
+Default
+	dapr creates
+		dapr-system namespace
+	
+default components deployed in the dapr-system namespace.
+---------------------------------------------------------
+dapr-operator. 
+	Manages 
+		Dapr component's lifecycle 
+		service endpoints.
+dapr-sidecar-injector. 
+	Injects Dapr sidecars 
+		into the deployments 
+		with 
+			specific annotations 
+		and 
+			environment variables specific to Dapr 
+		for e.g., 
+			DAPR_HTTP_PORT and DAPR_GRPC_PORT.
+dapr-sentry. 
+	a certificate authority 
+	manages certificates required to enable mTLS 
+		for communication between Dapr sidecar instances.
+dapr-placement. 
+	Required only if the application uses actors with Dapr.
+
+
+
+
+
+https://docs.dapr.io/operations/monitoring/tracing/
+
+Configure Dapr to send distributed tracing data
+---------------------------------------------------------
+	https://docs.dapr.io/operations/monitoring/tracing/setup-tracing/
+	docker ps 
+		confirm zipkin is already running on 9411
+		else
+			docker run -d -p 9411:9412 openzipkin/zipkin
+	cd quickstarts
+	cd pub_sub/java/sdk/order-processor		
+	mvn clean package
+	copy config.yaml from https://docs.dapr.io/operations/monitoring/tracing/setup-tracing/
+	dapr run --app-port 8080 --config ./config.yaml --app-id order-processor --components-path ../../../components -- java -jar target/OrderProcessingService-0.0.1-SNAPSHOT.jar	
+		
+	cd quickstarts
+	cd pub_sub/java/sdk/checkout
+	
+	mvn clean package
+	copy config.yaml	
+	open the port 9411 on azure.
+	dapr run --app-id checkout --config ./config.yaml --components-path ../../../components -- java -jar target/CheckoutService-0.0.1-SNAPSHOT.jar
+	
+	http://ip:9411/zipkin	
+		
+		
+Follow to do the same on kubernetes.		
+	https://docs.dapr.io/operations/monitoring/tracing/setup-tracing/	
+		
+		
+		
+Dapr has confugurable support for "New Relic" and "Jaeger"
+https://docs.dapr.io/operations/monitoring/tracing/supported-tracing-backends/		
+---------------------------------------------------------	
+Further details 
+https://docs.dapr.io/operations/monitoring/tracing/	
+Using OpenTelemetry Collector to collect traces
+Using OpenTelemetry Collector to collect traces to send to AppInsights
+Common Tracing Backends
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
+Configure the application and microservice
+------------------------------------------
+(a)set up cluster with the Dapr control plane
+(b) deploy the microservice application via Dapr.
+
+
+Git Hub reference: 
+	https://github.com/DexterPOSH/python-dapr-demo
+	uses Dapr state management 
+		building block and Redis
+		deployed on Kubernetes
+		as the underlying Dapr component. 
+	
+The code repository layout is straightforward, as shown in Figure 3.
+
+Screenshot of the demo GitHub repository that highlights its different components
+Figure 3. The layout of the demo GitHub repository.
+The GitHub actions pipeline is running continuous integration, and building and publishing the container image to Docker Hub.
+
+
+manifests/redis-state.yaml 	file defines the state management component using Redis deployed on the Kubernetes cluster itself.
+
+apiVersion: dapr.io/v1alpha1 
+kind: Component 
+metadata: 
+ name: statestore 
+ namespace: default 
+spec: 
+ type: state.redis 
+ version: v1 
+ metadata: 
+ - name: redisHost 
+   value: redis-master.default.svc.cluster.local:6379 
+ - name: redisPassword 
+   secretKeyRef: 
+     name: redis 
+     key: redis-password
+The application itself is deployed into the Kubernetes cluster using the manifests/app.yaml file. For the Dapr control plane to inject sidecars, it must be annotated with the specific tags.
+
+Below is the list of annotations placed on the deployment, which deploys the sample Python app.
+
+annotations: 
+       dapr.io/enabled: "true" 
+       dapr.io/app-id: "pythondaprdemo" 
+       dapr.io/app-port: "8080"
+Once these annotations are placed and the manifests are applied, use the command below.
+
+> kubectl apply -f ./manifests
+The Dapr control plane injects the Dapr sidecars inside our application deployment. Also, it injects environment variables inside the application container.
+
+Let's see the pod we created after we applied the manifests on the cluster. In this tutorial, we use Lens IDE to show the pod for the python-dapr-demo app.
+
+Screenshot of the pod running the application code and how the sidecar is injected with the environment variables
+Figure 4. How a sidecar is injected with the environment variables.
+Figure 4 depicts the pod running the application code, which uses Dapr for state management. It also displays how the Dapr sidecar container is injected along with environment variables.
+
+
+	
+
+	
+	
+•	Encryption
+---------------------------------------------------------------------------------
+	o	Key vault in Azure 
+	---------------------------------------------------------------------------------
+	Integrates with secret stores 
+		provide apps and other components 
+			secure storage 
+			access to secrets 
+				e.g. keys and passwords. 
+	Secret store component 
+		has a name 
+		use name when accessing a secret.
+
+
+	https://docs.dapr.io/operations/components/setup-secret-store/#apply-the-configuration
+
+e.g. with aws
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: awssecretmanager
+spec:
+  type: secretstores.aws.secretmanager	#secretstores.<NAME> format
+  version: v1
+  metadata:
+  - name: region
+    value: "[aws_region]"
+  - name: accessKey
+    value: "[aws_access_key]"
+  - name: secretKey
+    value: "[aws_secret_key]"
+  - name: sessionToken
+    value: "[aws_session_token]"
+	
+	
+how to use?
+https://docs.dapr.io/operations/components/component-secrets/	
+	
+
+
+
+The type of secret store is determined by the type field, and things like connection strings and other metadata are put in the .metadata section.
+
+Different supported secret stores will have different specific fields that would need to be configured. For example, when configuring a secret store which uses AWS Secrets Manager the file would look like this:
+	
+	
+	
+	
+	o	Encryption of Data
+	---------------------------------------------------------------------------------
+			At rest
+		---------------------------------------------------------------------------------
+			At motion
+		---------------------------------------------------------------------------------
+	o	Integrating DAPR with Key vault
+	---------------------------------------------------------------------------------
+	https://docs.dapr.io/reference/components-reference/supported-secret-stores/azure-keyvault/
+
+
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: azurekeyvault
+spec:
+  type: secretstores.azure.keyvault
+  version: v1
+  metadata:
+  - name: vaultName
+    value: "[vilaskv]"
+  - name: azureTenantId
+    value: "b9fc65b2-429b-43c9-8c17-91a0fcf24002"
+  - name: azureClientId
+    value: "[your_client_id]"
+  - name: azureClientSecret
+    value : "[your_client_secret]"
+
+
+#Tenant id - from azure active directory
+	https://www.google.com/search?q=how+to+get+tenant+id+in+azure&rlz=1C1GTPM_enIN1001IN1001&oq=how+to+get+tenant&aqs=chrome.0.0i512l2j69i57j0i512l7.2967j0j7&sourceid=chrome&ie=UTF-8
+Client id and pwd	
+https://docs.privacera.com/4.3/encryption-ug/connect_to_key_vault_with_client_id_and_secret/
+ed021df5-a24a-4a2c-9e6d-cff96dd5c9c0
+subscription: 09f83ca7-6140-49d2-9dd7-0cff4049d29f
+
+Day 7
+---------------------------------------------------------------------------------
+•	Azure event hub
+---------------------------------------------------------------------------------
+	o	Integrating DAPR with azure event hub
+	---------------------------------------------------------------------------------
+	o	Communication between microservices using Azure event hub.
+	---------------------------------------------------------------------------------
+	o	Saga implementation using Azure event hub
+	---------------------------------------------------------------------------------
+	https://docs.dapr.io/reference/components-reference/supported-pubsub/setup-azure-eventhubs/
+	https://itnext.io/tutorial-using-azure-event-hubs-with-the-dapr-framework-81c749b66dcf
+	https://medium.com/microsoftazure/adventures-with-dapr-publishing-subscribing-events-to-eventhub-in-net-5-0-5bf44cdb3c75
+	
+	
+	
+•	Fault toleration in DAPR
+---------------------------------------------------------------------------------
+https://docs.dapr.io/operations/resiliency/resiliency-overview/
+Distributed applications 
+	commonly has 
+		many microservices
+			many instances 
+	high likelihood of system failure. 
+	e.g., 
+		an instance can fail 
+			hardware
+			high number of requests
+			application restarts/scale outs
+				etc.
+	network call can fail. 
+	Design and implement 
+		application with fault tolerance
+			ability to 
+				detect, 
+				mitigate, 
+				respond 
+					to failures
+			application to recover to 
+				functioning state 
+				self healing.
+
+	Dapr 
+		in build configurable  
+			resiliency policies 
+			via a resiliency spec. 
+			saved in the same location as components specs 
+		applied when the Dapr sidecar starts. 
+		sidecar determines how to apply resiliency policies 
+		In self-hosted mode
+			resiliency spec name: 
+				resiliency.yaml. 
+	In Kubernetes 
+		resiliency specs 
+			define policies for popular resiliency patterns
+				Timeouts
+				Retries/back-offs
+				Circuit breakers
+
+	Resiliency policies supported 
+		Timeouts
+		Retries/back-offs
+		Circuit breakers
+	Policies 
+		applied to targets:
+			Apps via service invocation
+			Components
+			Actors
+
+		e.g. of policy spec.
+			https://docs.dapr.io/operations/resiliency/resiliency-overview/
+
+		policy has name 
+			refer to them from the targets section 
+				in the resiliency spec.
+
+https://github.com/dapr/dapr/issues/3586
+	Design goals are:
+		Support high-value resiliency policies: 
+			Timeouts, 
+			Retries/Back off and 
+			Circuit Breakers
+		Resiliency policies 
+			configured at the application scope
+		Compatibility across all 
+			component types and 
+			service invocation
+		Developers must opt-in
+			default behavior 
+				unchanged
+		Policies can be 
+			configured with sane defaults
+		Rules can be used to assign specific policies 
+		
+	Not in design are:
+		Distributed circuit breaking 
+			(additive feature)
+		Bulkheads and Throttling: 
+			These can be addressed by future proposals
+		Fallback operations: 
+			handled in code, 
+			not declaratively
+		Retries for application-to-Dapr communication: 
+			implement lightweight retries in their code logic if required.
+
+
+
+	o	Timeouts
+	---------------------------------------------------------------------------------
+		https://docs.dapr.io/operations/resiliency/policies/#timeouts
+
+		terminate long-running operations. 
+			terminate 
+				(if possible).
+			return error.
+		
+	
+Example:
+
+Copy
+spec:
+  policies:
+    # Timeouts are simple named durations.
+    timeouts:
+      general: 5s
+      important: 60s	#important can be a section defined latter
+      largeResponse: 10s	#largeResponse can be a section defined latter
+
+#Valid values 
+	15s, 
+	2m, 
+	1h30m, 	etc.
+
+	Refer table in https://github.com/dapr/dapr/issues/3586
+
+		
+	o	Retries/Back-offs
+	---------------------------------------------------------------------------------
+		https://docs.dapr.io/operations/resiliency/policies/#retries
+		
+		Refer image in https://github.com/dapr/dapr/issues/3586
+		
+		states
+			closed
+			half open 
+			open 
+			
+		Initially closed.
+		Failure threadshold reached?
+			go to open state
+				time out 
+			go to half open state
+				success 
+					go to closed state
+				failure
+					go to open state.
+
+
+	"buildingBlocks" section 
+		section in configuration file
+		covers most scenarios 
+		apply policies at 
+			service and 
+			component. 
+	This section sub sections:
+		services
+			Avoid calling a single bad instance 
+				in application 
+			used for service invocation. 
+			Circuit breakers 
+				scoped to the service endpoint 
+					(host + port)
+			Configuration:
+				Dapr App ID
+					one or all of 
+						timeout, 
+						retry and 
+						circuitBreaker policies.
+		dapr will remove the end point from loadbalancer until timeout				
+						
+		--------------------------------------------------------------------
+		actors - 
+			Who is an actor?
+			https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
+				The actor pattern 
+					lowest-level “unit of computation”. 
+					write code in a self-contained unit 
+						(called an actor) 
+						receives messages 
+						processes them one at a time
+						without concurrency or threading.
+				An actor processes a message
+					can send messages 
+						to other actors
+					or 
+						create new actors. 
+			An underlying runtime 
+				implementation of the Virtual Actor pattern
+				manages 
+					how
+					when 
+					where 
+						each actor runs
+					routes messages between actors.
+		A large number of actors 
+			execute 
+				simultaneously
+				independently .
+
+		When to use actors
+			Application involves 
+				large number 
+					(thousands or more) 
+				small
+				single-threaded
+				independent
+			and 
+				isolated units of 
+					state and logic.
+			
+			Not suitable for 
+				 significant interaction from external components
+					e.g. querying state across a set of actors.
+			
+		Actors in dapr
+		--------------
+			instance of an actor type
+				like object is an instance of a class. 
+			For e.g.
+				calculator actor type
+					instance of calculator: actor
+						can be distributed across nodes.
+						uniquely identified by an actor ID.
+
+		More on actors
+			https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/
+		--------------------------------------------------------------------	
+			used for actor invocation. 
+			circuitBreakerScope setting 
+				controls the granularity at which circuit breakers are tracked: 
+					by 
+						type (actor) 
+					or 
+						actor ids
+					or 
+						both. 
+				
+			components - 
+				used for Dapr-to-component communication. 
+				Circuit breakers 
+					1-to-1 relationship 
+						with component instances. 
+			circuit breaker 
+				named "pubsubCB" 
+				instantiated for both a Kafka 
+					(e.g. kafka1) 
+				and 
+					Redis (e.g. redis2) component. 
+	
+		routes - 
+			used for component-to-Dapr communication. 
+				Dapr send events to your application. 
+			Routes are defined in subscriptions 
+				(both declarative and programmatic) 
+				soon input bindings. 
+			Circuit breakers have a 1-to-1 relationship with each application route. 
+			
+			
+			
+			
+			
+			
+
+
+	Circuit breakers 
+		for services 
+		scoped per endpoint (e.g. hostname + port).
+        When a breaker trip
+			that route is removed from load balancing 
+				for the configured `timeout` duration.
+
+		
+	Refer table in https://github.com/dapr/dapr/issues/3586	
+
+
+e.g. policy
+-----------
+Reference: https://github.com/dapr/dapr/issues/3586
+
+	combination of 
+		service invocation and 
+		pubsub components.
+
+apiVersion: dapr.io/v1alpha1
+kind: Resiliency
+metadata:
+  name: daprResiliency
+scopes:
+  - app1	#Dapr App IDs
+  - app2
+spec:
+
+
+    # Circuit breakers 
+	#	automatically instantiated per 
+	#		component, 
+	#		service endpoint
+	#		application route.
+    # logic in `buildingBlocks`.
+    # Circuit breakers 
+	#	maintain counters 
+	#		live as long as the Dapr sidecar.
+
+
+#------------------------------------------------------------------------------
+# PHASE 1: circuitBreakers section
+#------------------------------------------------------------------------------
+
+    circuitBreakers:
+      general: {} # Sane defaults
+
+      pubsubCB:
+        maxRequests: 1
+        interval: 8s
+        timeout: 45s
+        trip: consecutiveFailures > 8	#circuit trip
+
+  # This section specifies default policies for:
+  # * service invocation
+  # * requests to components
+  # * events sent to routes
+  buildingBlocks:
+    services:
+      appB:
+        timeout: general
+        retry: general
+        circuitBreaker: general
+
+    actors:
+      myActorType:
+        timeout: general
+        retry: general
+        # Circuit breakers for actors are scoped by type, id, or both.
+        # When a breaker is tripped, that type or id is removed from the placement table for the configured `timeout` duration.
+        circuitBreaker: general
+        circuitBreakerScope: both
+        circuitBreakerCacheSize: 5000
+
+    components:
+      # For state stores, policies apply to saving and retrieving state.
+      # Watching, which is not implemented yet, is out of scope.
+      statestore1:
+        timeout: general
+        retry: general
+        # Circuit breakers for components are scoped per component configuration/instance (e.g. redis1).
+        # When this breaker is tripped, all interaction to that component is prevented for the configured `timeout` duration.
+        circuitBreaker: general
+
+      # For Pub/Sub, policies apply only to publishing.
+      # Subscribing/consuming is handled by routes.
+      pubsub1:
+        retry: pubsubRetry
+        circuitBreaker: pubsubCB
+
+      pubsub2:
+        retry: pubsubRetry
+        circuitBreaker: pubsubCB
+    
+    # Routes represent the application's URI/paths that receive incoming events from both
+    # PubSub and Input binding components. The route values correspond to the value configured
+    # in the Subscription configuration or programmatic call. For input bindings, this is
+    # configured in the component metadata via #3566.
+    routes:
+      'dsstatus.v3':
+        timeout: general
+        retry: general
+        circuitBreaker: general
+
+#------------------------------------------------------------------------------
+# PHASE 2: Overriding policies for specific Dapr API operations
+#------------------------------------------------------------------------------
+
+  apis:
+    invoke:
+      - match: appId == "appB"
+        # Nested rules: Prevent duplicative checks in rules.
+        # Its likely that controler-gen does not support this
+        # but apiextensionsv1.JSON can be used as workaround.
+        rules:
+          - match:
+              request.method == "GET" &&
+              request.metadata.count > 1000
+            timeout: largeResponse
+            retry: largeResponse
+          - match:
+              request.path == "/someOperation"
+            retry: someOperation
+
+    publish:
+      - match: |
+          event.type == "important.event.v1"
+        timeout: important
+        retry: important
+
+    # subscribe is when Dapr attempts to deliver a pubsub event to an application route.
+    subscribe:
+      - match: |
+          event.type == "important.event.v1"
+        timeout: important
+        retry: retryForever
+		
+		
+	o	Circuit breakers
+	---------------------------------------------------------------------------------
+		https://docs.dapr.io/operations/resiliency/policies/#circuit-breakers
+
+	
+
+Day 8
+---------------------------------------------------------------------------------
+	•	Apigee
+	---------------------------------------------------------------------------------
+		o	What is Apigee
+		---------------------------------------------------------------------------------
+		o	Features of Apigee
+		---------------------------------------------------------------------------------
+		o	Basic terminology of Apigee
+		---------------------------------------------------------------------------------
+		o	API development lifecycle
+		---------------------------------------------------------------------------------
+		o	Development tools
+		---------------------------------------------------------------------------------
+		o	Using Apigee API and UI
+		---------------------------------------------------------------------------------
+		o	API proxy based development
+		---------------------------------------------------------------------------------
+	•	Productionizing Cloud/Microservices Applications
+	---------------------------------------------------------------------------------
+
+Day 9
+---------------------------------------------------------------------------------
+	•	Typical cloud Microservices deployment overview
+	---------------------------------------------------------------------------------
+	•	Production challenges
+	---------------------------------------------------------------------------------
+		o	Scalability
+		---------------------------------------------------------------------------------
+				Implement Auto scaling using Keda.
+			------------------------------------------------------------------------------
+		o	Performance
+		---------------------------------------------------------------------------------
+		o	Efficient dev. time
+		---------------------------------------------------------------------------------
+		o	Loosely coupled architecture
+		---------------------------------------------------------------------------------
+		o	Reduce complexity
+		---------------------------------------------------------------------------------
+		o	Authentication and authorization 
+		---------------------------------------------------------------------------------
+				Integrate the cluster with Microsoft AD using myui. 
+			-----------------------------------------------------------------------------
+
+
+toc end			
+			
+			
+dapr 
+	log level modification
+		default: info (source dapr run logs)
+	mTLS validation?
+		disabled by default (source dapr run logs)
+		
+		
+----------------------------------------------------------------
+
+
+https://github.com/dapr/quickstarts/tree/master/tutorials/hello-kubernetes
+In production run Dapr in k8s cluster
+how to run Dapr in a Kubernetes cluster? 
+
+1. Create Resource group
+2. Create virtual network
+	CIDR: 192.168.0.0/16 (default kubeadm 10.96.0.0/12. Don't overlap with that)
+	a. Add subnet with in
+		192.168.1.0/24
+		192.168.2.0/24
+	
+	Create 3 vm's
+	install kubernetes
+	install dapr
+	
+	dapr init --kubernetes --wait
+	dapr status -k
+	
+------------------------
+Control plane ns: dapr-system
+Control plane components
+  dapr-sidecar-injector
+  dapr-placement-server
+  dapr-sentry          
+  dapr-dashboard       
+  dapr-operator        
+------------------------
+	install helm
+	$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+	$ chmod 700 get_helm.sh
+	$ ./get_helm.sh
+
+	helm repo add bitnami https://charts.bitnami.com/bitnami
+	helm repo update
+	helm install redis bitnami/redis --set image.tag=6.2
+		if this errors out
+			pvc not getting created.
+	helm list
+	helm delete redis
+	helm install myredis1 --set master.persistence.existingClaim=PVC_NAME bitnami/redis
+	helm install myredis1 --set master.persistence.existingClaim=my-persistent-volumeclaim bitnami/redis
+	
+	helm install redis --set "master.persistence.enabled=false" --set "slave.persistence.enabled=false" bitnami/redis
+		# not advised for production.
+	
+
+
+
+	Get Redis pwd
+		kubectl get secret --namespace default redis-1664786770 -o jsonpath="{.data.redis-password}" | base64 -d
+	export REDIS_PASSWORD=$(kubectl get secret --namespace default redis-1664786770 -o jsonpath="{.data.redis-password}" | base64 -d)	
+		
+	kubectl run --namespace default redis-client --restart='Never'  --env REDIS_PASSWORD=$REDIS_PASSWORD  --image docker.io/bitnami/redis:7.0.5-debian-11-r3 --command -- sleep infinit
+	
+																																																																		
+	
+	
+	install git 
+	git clone [-b <dapr_version_tag>] https://github.com/dapr/quickstarts.git
+	git clone -b release-1.8 https://github.com/dapr/quickstarts.git
+		
+		
+--------------------------------------------------------------------
+Service invocation 
+Service discovery
+https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/		
+
+https://docs.dapr.io/getting-started/quickstarts/serviceinvocation-quickstart/
+
+--------------------------------------------------------------------
+ service-to-service security 
+https://docs.dapr.io/concepts/security-concept/#sidecar-to-sidecar-communication
+
+--------------------------------------------------------------------
+Resiliency article here.
+	Timeouts
+	Retries/back-offs
+	Circuit breakers
+https://docs.dapr.io/operations/resiliency/resiliency-overview/
+--------------------------------------------------------------------
+Tracing and metrics with observability
+	https://docs.dapr.io/concepts/observability-concept/
+--------------------------------------------------------------------
+access control allow lists for service invocation 
+https://docs.dapr.io/operations/configuration/invoke-allowlist/
+--------------------------------------------------------------------
+Service invocation across namespaces
+
+https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-namespaces/
+--------------------------------------------------------------------
+Pluggable service discovery
+https://docs.dapr.io/operations/hosting/
+https://docs.dapr.io/reference/components-reference/supported-name-resolution/
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+--------------------------------------------------------------------
+quik start pub/sub
+	https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+
+--------------------------------------------------------------------
+
+dapr in k8s
+	ways to install 
+		1. dapr init -k --enable-ha=true
+		
+		2. using helm
+		helm repo add dapr https://dapr.github.io/helm-charts/
+		helm repo update
+		helm search repo dapr --devel --versions
+		
+		helm upgrade --install dapr dapr/dapr --version=1.4 --namespace dapr-system --create-namespace --set global.ha.enabled=true --wait
+		
+		3. using github actions
+		[not complete]
+	
+	ways to upgrade
+		update cli version 
+		update dapr control plane
+		update data plane
+		
+	
+		1. dapr cli
+			dapr upgrade -k --runtime-version =1.4.2
+		2. helm 
+		
+		
+	mTLS
+		https://github.com/dapr/samples/tree/master/twitter-sentiment-processor/demos/javademo
+		
+	is mtls enabled?	
+		dapr mtls -k 
+	kubectl edit configurations/daprsystem -n dapr-system
+	
+	modify the timings and apply 
+
+	kubectl rollout restart starefulsets/dapr-placement-server deploy/dapr-sentry deploy/dapr-operator -n dapr-system
+	
+	watch dapr -k 
+	
+	kubectl rollout restart deploy/processor deploy/provider deploy/viewer
+	
+	kubectl logs viewer-74####-rnwq daprd --following
+	
+	
+Security configuration
+	app to dapr api auth
+		uses jwt
+		
+		add annotations
+		
+		annotations:
+			dapr.io/enabled: "true"
+			dpar.io/api-token-secret: "dapr-api-token"
+		
+	dapr to app api authentication
+		annotations:
+			dapr.io/enabled: "true"
+			dpar.io/app-token-secret: "app-api-token"
+		
+
+Namespaces
+	dapr-system 
+		kubectl edit component/tweets
+		
+
+secret 
+
+apiVerison: v1
+kind: Secret
+metadata:
+  demo-twitter-secret
+  namespace: 
+type: Opaque
+data:
+  consumerKey: 
+  consumerSecret:
+  accessToken:
+  accessSecret:
+  
+  
+POST: http://localhost:3500/v1.0/invoke/cart/method/newOrder
+  
+get: http://localhost:3500/v1.0/state/inventory/item67
+
+
+POST: http://localhost:3500/v1.0/publish/shipping/orders
+
+POST: http://localhost:3500/v1.0/secrets/keyvault/password
+		
+		
+--------------------------------
+Dapr
+	service - to service invocation
+		direct
+		secure 
+		service to service method calls
+	state management
+		long running stateful and stateless services
+	publish and subscribe
+		secure/scalable messaging between services
+	bindings(i/o)
+		trigger code through events 
+			from large array of inputs
+		i/p and o/p bindings to external resources
+			including db and queues
+		
+	actors
+		encapsulate code and data 
+			in reusable actors 
+			object as a common ms design patterns
+	observability
+		see and measure message calls across components and networked services
+	secrets
+		securely access secrets from your application
+		
+join
+	github.com/dapr
+	docs.dapr.io
+	github.com/dapr/community
+	aka.ms/dapr-discord
+	@daprdev
+	
+	
+https://learn.microsoft.com/en-us/azure/aks/quickstart-dapr?tabs=azure-cli	
+
+
+grpc (How-To: Invoke services using gRPC)
+https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/
+
+Service invocation overview
+https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
+
+Quickstart: Publish and Subscribe
+https://docs.dapr.io/getting-started/quickstarts/pubsub-quickstart/
+
+Java in dapr
+https://docs.dapr.io/developing-applications/sdks/java/
+
+
+How-To: Invoke services using HTTP
+https://docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-discover-services/
+
+Quickstart: Service Invocation
+https://docs.dapr.io/getting-started/quickstarts/serviceinvocation-quickstart/
+
+Homepage for many theory
+https://docs.dapr.io/developing-applications/building-blocks/
+270
+resiliency/Fault tolerance/targets
+https://docs.dapr.io/operations/resiliency/targets/
